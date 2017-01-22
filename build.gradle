@@ -33,13 +33,14 @@ repositories {
 }
 	
 group = 'org.mini2Dx'
-version = "$libgdxVersion"
+version = "$libgdxVersion" + ".1"
 	
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 	
 dependencies {
 	compile ("org.mini2Dx:gdx-collections:$libgdxVersion" + ".1")
+	compile ("org.mini2Dx:gdx-math:$libgdxVersion")
 }
 
 task cleanSrcDir(type: Delete) {
@@ -92,7 +93,8 @@ task copyInputClasses(type: Copy, dependsOn: copyLicenseFiles) {
 		
 		filter { String line ->
         	line.contains('import') ? (
-				line.contains('com.badlogic.gdx.utils') ? line.replace('com.badlogic.gdx.utils', 'org.mini2Dx.gdx.utils') : null
+				line.contains('com.badlogic.gdx.utils') ? line.replace('com.badlogic.gdx.utils', 'org.mini2Dx.gdx.utils') : 
+				(line.contains('com.badlogic.gdx.math') ? line.replace('com.badlogic.gdx.math', 'org.mini2Dx.gdx.math') : null)
 			) : (line.contains('com.badlogic.gdx') ? line.replace('com.badlogic.gdx', 'org.mini2Dx.gdx') : line)
     	}
 	}
@@ -100,7 +102,7 @@ task copyInputClasses(type: Copy, dependsOn: copyLicenseFiles) {
 }
 
 task copyControllerClasses(type: Copy, dependsOn: copyLicenseFiles) {
-	from('libgdx/extensions/gdx-controllers/gdx-controllers/src/badlogic/gdx/controllers') {
+	from('libgdx/extensions/gdx-controllers/gdx-controllers/src/com/badlogic/gdx/controllers') {
 		include 'ControlType.java'
 		include 'Controller.java'
 		include 'ControllerAdapter.java'
@@ -111,7 +113,8 @@ task copyControllerClasses(type: Copy, dependsOn: copyLicenseFiles) {
 		
 		filter { String line ->
         	line.contains('import') ? (
-				line.contains('com.badlogic.gdx.utils') ? line.replace('com.badlogic.gdx.utils', 'org.mini2Dx.gdx.utils') : null
+				line.contains('com.badlogic.gdx.utils') ? line.replace('com.badlogic.gdx.utils', 'org.mini2Dx.gdx.utils') : 
+				(line.contains('com.badlogic.gdx.math') ? line.replace('com.badlogic.gdx.math', 'org.mini2Dx.gdx.math') : null)
 			) : (line.contains('com.badlogic.gdx') ? line.replace('com.badlogic.gdx', 'org.mini2Dx.gdx') : line)
     	}
 	}
