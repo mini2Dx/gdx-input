@@ -15,3 +15,15 @@ This project's only dependency is [gdx-collections](https://github.com/mini2Dx/g
 
 ## Included Classes
 
+* ControlType
+* Controller
+* ControllerAdapter
+* ControllerListener
+* ControllerManager
+* ControllerManagerStub
+* Input
+* InputAdapter
+* InputEventQueue
+* InputMultiplexer
+* InputProcessor
+* PovDirection
