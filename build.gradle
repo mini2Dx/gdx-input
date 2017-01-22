@@ -33,13 +33,13 @@ repositories {
 }
 	
 group = 'org.mini2Dx'
-version = "$libgdxVersion" + ".1"
+version = "$libgdxVersion"
 	
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 	
 dependencies {
-	compile ("org.mini2Dx:gdx-collections:$libgdxVersion" + ".1")
+	compile ("org.mini2Dx:gdx-collections:$libgdxVersion")
 	compile ("org.mini2Dx:gdx-math:$libgdxVersion")
 }
 
